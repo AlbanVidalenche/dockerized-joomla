@@ -1,0 +1,61 @@
+version: '3.7'
+
+services:
+  mariadb:
+    image: mariadb:10.5
+    environment:
+      - MARIADB_USER=joomla
+      - MARIADB_DATABASE=joomla
+      - MARIADB_ROOT_PASSWORD=M0tDeePath@
+      - MARIADB_PASSWORD=P&swoord!
+    volumes:
+      - /opt/docker/volumes/mariadb:/var/lib/mysql
+      - /opt/docker/volumes/joomla_logs/mariadb:/var/log/mysql
+    expose:
+        - '3306'
+    networks: 
+        - joomla
+
+ # nginx:
+ #   build: ./nginx
+ #   image: joomla_front
+ #   volumes:
+ #     - joomla_data:/var/www/html
+ #     - /opt/docker/volumes/joomla_logs/nginx/:/var/log/nginx
+ #   ports: 
+ #     - 80:80
+ #   networks: 
+ #     - joomla
+      
+  nginx:
+    build: ./nginx-ssl
+    image: joomla_front_ssl
+    volumes:
+      - joomla_data:/var/www/html
+      - /opt/docker/volumes/joomla_logs/nginx/:/var/log/nginx
+    ports:
+      - 80:80
+      - 443:443
+    env_file:
+      - ./nginx-ssl/nginx-certbot.env
+    networks: 
+      - joomla
+
+  php:
+    build: ./php
+    image: joomla_back
+    volumes:
+      - joomla_data:/var/www/html
+      - /opt/docker/volumes/joomla_logs/php-fpm/:/var/log/php-fpm/errors.logs
+    expose: 
+      - '9000'
+    networks: 
+        - joomla
+
+
+volumes:
+  joomla_data:
+  nginx_secrets:
+
+networks:
+  joomla:
