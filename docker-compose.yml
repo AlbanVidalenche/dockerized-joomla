@@ -13,7 +13,7 @@ services:
         - '3306'
     networks: 
         - joomla
-      
+
   nginx:
     build: ./nginx-ssl
     image: joomla_front_ssl
@@ -25,7 +25,7 @@ services:
       - 443:443
     env_file:
       - ./nginx-ssl/nginx-certbot.env
-    networks: 
+    networks:
       - joomla
 
   php:
@@ -36,7 +36,7 @@ services:
       - /opt/docker/volumes/joomla_logs/php-fpm/:/var/log/php-fpm/errors.logs
     expose: 
       - '9000'
-    networks: 
+    networks:
         - joomla
 
 volumes:
