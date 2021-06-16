@@ -1,5 +1,4 @@
 FROM debian:buster
-WORKDIR /root/docker-compose/joomla/
 RUN  apt update && apt-get install -y  \
  php \
  php-gd \
