@@ -7,7 +7,7 @@
 - La stack repose sur trois contneurs, deux volumes docker, et d'autres volumes sour la forme de bind-mount.
 - L'application est stockée dans un volume docker, qui est accessible par deux conteneurs, nginx-ssl et php-fpm
 - Le conteneur nginx est le point d'entrée de l'application, et fait appel au conteneur php-fpm pour le traitement php. 
-- La particularité du conteneur Nginx est qu'il s'agit d'une version customisée avec l'ajout de letsecrypt, qui permet d'obtenir un certificat à la création de la stack.
+- La particularité du conteneur Nginx est qu'il s'agit d'une version customisée avec l'ajout de letsecrypt, qui permet d'obtenir un certificat à la   création de la stack. La configuration actuelle permet d'obetnir un certificat pour l'adresse joomla.albanv.fr
 - Le conteneur php écoute sur le port 9000, et comunique avec Nginx pour traiter les requêtes.
 - Enfin, le conteneur mariadb n'a subit aucune modification, il n'y a donc pas de fichier Dockerfile utilisé.
 - La seule chose à savoir à propos de ce conteneur est que les informations sensibles comme les mots de passe sont fournis sous la forme de variables d'environnement qui ne sont pas dans le dépôt, (cf: gitignore)
