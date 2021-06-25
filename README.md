@@ -1,6 +1,7 @@
 # TP Docker pour la conteneurisationd de l'application Joomla
 
 - Voici ma solution pour la conteneurisation de l'application joomla
+- Le .zip qui vous a été remis est un repo git hébergé sur github. Je peux le passer en public si vous préférez.
 
 ## Fonctionnement 
 
