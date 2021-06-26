@@ -1,0 +1,5 @@
+# Ce fichier est l'équivalent du fichier d'environnement contenant les mots de passe pour Mariadb
+MARIADB_USER=
+MARIADB_DATABASE=
+MARIADB_ROOT_PASSWORD=
+MARIADB_PASSWORD=
