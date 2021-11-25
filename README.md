@@ -32,6 +32,4 @@
   
   La preuve que tout fonctionne se situe à l'adresse https://joomla.vidalenche.fr
   
-
-  
   
